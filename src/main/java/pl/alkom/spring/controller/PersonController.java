@@ -12,6 +12,8 @@ import pl.alkom.spring.repositories.PersonRepository;
 import pl.alkom.spring.repositories.TeamRepository;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Author: Daniel
@@ -71,6 +73,11 @@ public class PersonController {
         Iterable<Person> peoples = personRepository.findByNameUsingJPQL(name);
         model.addAttribute("peoples", peoples);
         return "personList";
+    }
+
+    @RequestMapping("/takeAll")
+    public List<Person> listPersonAll(){
+        return new ArrayList<Person>();
     }
 
 }
